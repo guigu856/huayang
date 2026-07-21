@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>本地视频剪辑器</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236f8cff'/%3E%3Cpath d='M18 17h8l6 11 6-11h8L36 34l10 13h-9l-5-8-5 8h-9l10-13z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="本地视频剪辑器">
+          <span class="brand-mark">VC</span>
+          <span>本地视频剪辑器</span>
+        </div>
+        <div class="project-summary">
+          <label class="sr-only" for="project-name">工程名称</label>
+          <input id="project-name" class="project-name" value="未命名工程" />
+          <span id="save-state" class="save-state">已保存</span>
+        </div>
+        <div class="topbar-actions">
+          <button id="new-project" class="button button-secondary" type="button">新建工程</button>
+          <button id="render-project" class="button button-primary" type="button">导出视频</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="media-panel" aria-label="素材库">
+          <div class="panel-tabs" role="tablist" aria-label="资源类型">
+            <button class="panel-tab is-active" type="button" role="tab" aria-selected="true">
+              素材
+            </button>
+            <button id="add-text" class="panel-tab" type="button" role="tab">文字</button>
+          </div>
+          <div class="panel-heading">
+            <div>
+              <h2>本地素材</h2>
+              <p>视频、图片和音频</p>
+            </div>
+            <label class="icon-button" title="导入素材">
+              <span aria-hidden="true">＋</span>
+              <span class="sr-only">导入素材</span>
+              <input id="asset-upload" type="file" accept="video/*,image/*,audio/*" multiple />
+            </label>
+          </div>
+          <div id="asset-list" class="asset-list" aria-live="polite"></div>
+          <div id="asset-empty" class="empty-state">
+            <div class="empty-icon" aria-hidden="true">▧</div>
+            <strong>导入第一个素材</strong>
+            <span>也可以把文件拖到这里</span>
+          </div>
+        </aside>
+
+        <section class="stage-panel" aria-label="播放器">
+          <div class="stage-toolbar">
+            <span id="canvas-label">1280 × 720</span>
+            <span id="revision-label">版本 0</span>
+          </div>
+          <div class="stage-area">
+            <div id="preview-canvas" class="preview-canvas" tabindex="0" aria-label="视频预览">
+              <div id="preview-layers" class="preview-layers"></div>
+              <div id="preview-empty" class="preview-empty">
+                <span aria-hidden="true">▶</span>
+                <p>把素材拖到时间线开始剪辑</p>
+              </div>
+            </div>
+          </div>
+          <div class="playback-controls">
+            <button id="jump-start" class="transport-button" type="button" aria-label="回到开头">│◀</button>
+            <button id="play-toggle" class="play-button" type="button" aria-label="播放">▶</button>
+            <div class="timecode"><span id="current-time">00:00.000</span><span>/</span><span id="duration">00:00.000</span></div>
+            <label class="zoom-control">
+              <span>预览</span>
+              <select id="preview-scale" aria-label="预览缩放">
+                <option value="fit">适合</option>
+                <option value="0.5">50%</option>
+                <option value="1">100%</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <aside class="inspector" aria-label="属性检查器">
+          <div class="inspector-heading">
+            <h2>属性</h2>
+            <span id="selection-kind">未选择片段</span>
+          </div>
+          <div id="inspector-empty" class="inspector-empty">选择时间线中的片段以编辑参数</div>
+          <form id="clip-inspector" class="inspector-form" hidden>
+            <section class="inspector-section">
+              <h3>时间</h3>
+              <div class="field-grid">
+                <label>开始<input name="start" type="number" min="0" step="0.01" /></label>
+                <label>时长<input name="duration" type="number" min="0.04" step="0.01" /></label>
+                <label>源入点<input name="source_in" type="number" min="0" step="0.01" /></label>
+              </div>
+            </section>
+            <section class="inspector-section">
+              <h3>变换</h3>
+              <div class="field-grid">
+                <label>X<input name="x" type="number" step="1" /></label>
+                <label>Y<input name="y" type="number" step="1" /></label>
+                <label>宽度<input name="width" type="number" min="1" step="1" /></label>
+                <label>高度<input name="height" type="number" min="1" step="1" /></label>
+                <label>旋转<input name="rotation" type="number" step="1" /></label>
+                <label>透明度<input name="opacity" type="number" min="0" max="1" step="0.05" /></label>
+              </div>
+            </section>
+            <section id="text-fields" class="inspector-section" hidden>
+              <h3>文字</h3>
+              <label class="stacked-field">内容<textarea name="text" rows="3"></textarea></label>
+            </section>
+            <section class="inspector-section">
+              <h3>声音</h3>
+              <label class="range-field">
+                <span>音量</span>
+                <input name="volume" type="range" min="0" max="2" step="0.05" />
+                <output id="volume-value">100%</output>
+              </label>
+            </section>
+            <button id="delete-clip" class="button button-danger" type="button">删除片段</button>
+          </form>
+        </aside>
+
+        <section class="timeline-panel" aria-label="时间线">
+          <div class="timeline-toolbar">
+            <div class="tool-group">
+              <button id="split-clip" class="tool-button" type="button">分割</button>
+              <button id="delete-selected" class="tool-button" type="button">删除</button>
+              <span class="tool-divider" aria-hidden="true"></span>
+              <button id="add-visual-track" class="tool-button" type="button">＋视觉轨</button>
+              <button id="add-audio-track" class="tool-button" type="button">＋音频轨</button>
+            </div>
+            <div class="timeline-status"><span id="clip-count">0 个片段</span></div>
+            <label class="timeline-zoom">
+              <span>时间线缩放</span>
+              <input id="timeline-zoom" type="range" min="30" max="180" value="80" />
+            </label>
+          </div>
+          <div class="timeline-scroll" id="timeline-scroll">
+            <div class="track-labels" id="track-labels"></div>
+            <div class="timeline-content" id="timeline-content">
+              <div id="time-ruler" class="time-ruler"></div>
+              <div id="track-list" class="track-list"></div>
+              <div id="playhead" class="playhead" aria-hidden="true"><span></span></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast-region" class="toast-region" aria-live="polite"></div>
+    <dialog id="render-dialog" class="render-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <h2>导出视频</h2>
+          <button class="icon-button" value="cancel" aria-label="关闭">×</button>
+        </div>
+        <div id="render-idle">
+          <p>使用当前工程版本生成 H.264 MP4 文件。</p>
+          <button id="start-render" class="button button-primary" type="button">开始导出</button>
+        </div>
+        <div id="render-progress" class="render-progress" hidden>
+          <div class="progress-track"><span id="render-progress-bar"></span></div>
+          <strong id="render-status">正在准备渲染</strong>
+          <p id="render-message">渲染任务已创建</p>
+          <button id="cancel-render" class="button button-secondary" type="button">取消导出</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>
