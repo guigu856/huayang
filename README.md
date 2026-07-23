@@ -1,6 +1,6 @@
 # Huayang 视频创作插件
 
-本项目提供可由 Codex、Claude、Cursor 等 Agent 直接调用的视频创作插件与确定性组件。插件公共名称和 Python 分发名均为 `huayang`，内部 Python 包保持为 `video_create_plugin`。
+本项目提供可由 Codex、Claude、Cursor 等 Agent 直接调用的视频创作插件与确定性组件。
 
 > **当前状态**：项目处于基础架构已跑通的早期阶段——各组件可安装、可启动、主流程可运行，但功能细节、稳定性与体验仍在持续完善和优化中，接口与行为可能随时调整。
 
