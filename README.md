@@ -98,10 +98,3 @@ uv run material-acquisition acquire "<candidate_ref>"
 
 素材保存在 `output/materials/downloads/`，来源和授权记录保存在 `output/materials/provenance/`。
 
-## 文档索引
-
-- 插件边界与架构：[`docs/组件/剪辑创作插件.md`](docs/组件/剪辑创作插件.md)、[`docs/架构/剪辑创作插件架构设计.md`](docs/架构/剪辑创作插件架构设计.md)
-- 本地视频剪辑器：[`docs/组件/本地视频剪辑器.md`](docs/组件/本地视频剪辑器.md)、[`docs/产品/本地视频剪辑器PRD.md`](docs/产品/本地视频剪辑器PRD.md)、[`docs/架构/本地视频剪辑器架构.md`](docs/架构/本地视频剪辑器架构.md)
-- 视频下载：[`docs/组件/视频下载组件.md`](docs/组件/视频下载组件.md)
-- 素材获取：[`docs/组件/素材获取组件.md`](docs/组件/素材获取组件.md)
-- 常用命令：[`docs/命令速查.md`](docs/命令速查.md)
