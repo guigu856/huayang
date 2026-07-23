@@ -142,7 +142,10 @@ def test_unix_installer_stops_when_managed_repo_pull_fails(tmp_path: Path) -> No
     _write_executable(
         fake_bin / "git",
         """#!/usr/bin/env bash
-if [ "$3 $4" = "remote get-url" ]; then echo https://github.com/guigu856/huayang.git; exit 0; fi
+if [ "$3 $4" = "remote get-url" ]; then
+  echo https://github.com/guigu856/huayang.git
+  exit 0
+fi
 if [ "$3" = "status" ]; then exit 0; fi
 if [ "$3" = "pull" ]; then exit 42; fi
 exit 0
