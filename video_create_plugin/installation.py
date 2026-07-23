@@ -5,9 +5,10 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from .codex_install import build_codex_marketplace
 from .context import ContextCatalog
