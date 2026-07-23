@@ -24,9 +24,9 @@
 
 ## 使用方式
 
-### 安装
+### 一键安装
 
-一行命令，脚本会自动检查并按需安装 git、uv、FFmpeg，克隆仓库（在仓库目录内运行则直接使用当前目录），同步 Python 依赖、安装 Playwright Chromium 并把 `huayang` 命令装入用户环境：
+脚本会检查并按需安装 git、uv、FFmpeg，验证或克隆官方仓库，同步 Python 依赖、安装 Playwright Chromium、安装 `huayang` 命令，并执行安装自检。检测到 Codex CLI 时还会自动构建并安装 Huayang Plugin。
 
 Windows（PowerShell）：
 
@@ -40,13 +40,39 @@ macOS / Linux：
 curl -fsSL https://raw.githubusercontent.com/guigu856/huayang/main/install.sh | bash
 ```
 
-手动安装（开发者）：
+安装脚本拒绝覆盖来源不匹配、损坏或包含未提交修改的托管仓库目录，更新失败时也不会继续使用旧版本。uv 命令目录通过 `uv tool dir --bin` 动态获取，支持自定义 `UV_TOOL_BIN_DIR`。
+
+### 手动安装（开发者）
 
 ```powershell
 uv sync --extra dev
 uv run playwright install chromium
 uv tool install --force --editable .
+huayang doctor
 ```
+
+### 安装或刷新 Codex Plugin
+
+该命令从已安装包自动定位 `.mcp.json`、Rules、Skills 与 Schemas，不依赖当前工作目录：
+
+```powershell
+huayang plugin install codex
+```
+
+只构建本地 Marketplace、不修改 Codex 配置：
+
+```powershell
+huayang plugin install codex --build-only
+```
+
+### 安装自检
+
+```powershell
+huayang doctor
+huayang doctor --json
+```
+
+自检会检查 Python、插件资源、FFmpeg、ffprobe、MCP Server 构建以及 Chromium 实际启动。仅检查 Chromium 文件、不启动浏览器时使用 `--skip-browser`。
 
 ### 启动本地管理后台
 
@@ -62,14 +88,6 @@ huayang
 
 ```powershell
 huayang-mcp
-```
-
-将最小插件包注册并安装到 Codex：
-
-```powershell
-uv run python -c "from pathlib import Path; from video_create_plugin.codex_install import build_codex_marketplace; print(build_codex_marketplace(Path.cwd()))"
-codex plugin marketplace add "$env:LOCALAPPDATA\huayang\marketplace"
-codex plugin add huayang@huayang-local
 ```
 
 ### 本地视频剪辑器
@@ -97,4 +115,3 @@ uv run material-acquisition acquire "<candidate_ref>"
 ```
 
 素材保存在 `output/materials/downloads/`，来源和授权记录保存在 `output/materials/provenance/`。
-
