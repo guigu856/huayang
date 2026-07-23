@@ -83,5 +83,23 @@ jobs:
           cat ruff-results.json
           exit 1
 
-      - name: Type-check installation code
-        run: uv run mypy video_create_plugin/installation.py video_create_plugin/admin/__main__.py
+      - name: Collect mypy diagnostics
+        id: mypy
+        continue-on-error: true
+        shell: bash
+        run: uv run mypy video_create_plugin/installation.py video_create_plugin/admin/__main__.py --show-error-codes > mypy-results.txt 2>&1
+
+      - name: Upload mypy diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mypy-${{ runner.os }}
+          path: mypy-results.txt
+          if-no-files-found: error
+
+      - name: Enforce mypy result
+        if: steps.mypy.outcome == 'failure'
+        shell: bash
+        run: |
+          cat mypy-results.txt
+          exit 1
