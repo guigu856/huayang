@@ -10,6 +10,7 @@ from collections.abc import Sequence
 import uvicorn
 
 from video_create_plugin.installation import install_codex_plugin, print_doctor, run_doctor
+
 from .api import create_app
 
 
