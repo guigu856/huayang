@@ -63,8 +63,25 @@ jobs:
       - name: Run installation tests
         run: uv run pytest tests/test_installation_cli.py tests/test_install_sh.py
 
-      - name: Lint installation changes
-        run: uv run ruff check video_create_plugin/installation.py video_create_plugin/admin/__main__.py tests/test_installation_cli.py tests/test_install_sh.py
+      - name: Collect Ruff diagnostics
+        id: ruff
+        continue-on-error: true
+        run: uv run ruff check video_create_plugin/installation.py video_create_plugin/admin/__main__.py tests/test_installation_cli.py tests/test_install_sh.py --output-format=json --output-file=ruff-results.json
+
+      - name: Upload Ruff diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruff-${{ runner.os }}
+          path: ruff-results.json
+          if-no-files-found: error
+
+      - name: Enforce Ruff result
+        if: steps.ruff.outcome == 'failure'
+        shell: bash
+        run: |
+          cat ruff-results.json
+          exit 1
 
       - name: Type-check installation code
         run: uv run mypy video_create_plugin/installation.py video_create_plugin/admin/__main__.py
