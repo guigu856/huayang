@@ -26,6 +26,22 @@
 
 ### 安装
 
+一行命令，脚本会自动检查并按需安装 git、uv、FFmpeg，克隆仓库（在仓库目录内运行则直接使用当前目录），同步 Python 依赖、安装 Playwright Chromium 并把 `huayang` 命令装入用户环境：
+
+Windows（PowerShell）：
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/guigu856/huayang/main/install.ps1 | iex
+```
+
+macOS / Linux：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/guigu856/huayang/main/install.sh | bash
+```
+
+手动安装（开发者）：
+
 ```powershell
 uv sync --extra dev
 uv run playwright install chromium
