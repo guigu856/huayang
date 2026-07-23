@@ -11,13 +11,16 @@ function Refresh-Path {
                 [Environment]::GetEnvironmentVariable('Path', 'User')
 }
 function Test-HuayangSource([string]$Root) {
-    return (Test-Path (Join-Path $Root 'pyproject.toml') -PathType Leaf) -and
-        (Select-String -Path (Join-Path $Root 'pyproject.toml') -Pattern '^name = "huayang"' -Quiet) -and
-        (Test-Path (Join-Path $Root '.mcp.json') -PathType Leaf) -and
-        (Test-Path (Join-Path $Root '.codex-plugin\plugin.json') -PathType Leaf) -and
-        (Test-Path (Join-Path $Root 'rules\main-agent.md') -PathType Leaf) -and
-        (Test-Path (Join-Path $Root 'skills') -PathType Container) -and
+    $checks = @(
+        (Test-Path (Join-Path $Root 'pyproject.toml') -PathType Leaf),
+        (Test-Path (Join-Path $Root '.mcp.json') -PathType Leaf),
+        (Test-Path (Join-Path $Root '.codex-plugin\plugin.json') -PathType Leaf),
+        (Test-Path (Join-Path $Root 'rules\main-agent.md') -PathType Leaf),
+        (Test-Path (Join-Path $Root 'skills') -PathType Container),
         (Test-Path (Join-Path $Root 'schemas') -PathType Container)
+    )
+    if ($checks -contains $false) { return $false }
+    return Select-String -Path (Join-Path $Root 'pyproject.toml') -Pattern '^name = "huayang"' -Quiet
 }
 function Test-ExpectedOrigin([string]$Origin) {
     return $Origin -in @(
@@ -117,11 +120,14 @@ if (-not (Get-Command ffprobe -ErrorAction SilentlyContinue)) { Fail 'ffprobe is
 Push-Location $projectDir
 try {
     Step 'Syncing locked Python dependencies...'
-    uv sync
+    & uv sync
+    if ($LASTEXITCODE -ne 0) { Fail 'uv sync failed.' }
     Step 'Installing Playwright Chromium...'
-    uv run playwright install chromium
+    & uv run playwright install chromium
+    if ($LASTEXITCODE -ne 0) { Fail 'Playwright Chromium installation failed.' }
     Step 'Installing Huayang commands...'
-    uv tool install --force --editable .
+    & uv tool install --force --editable .
+    if ($LASTEXITCODE -ne 0) { Fail 'uv tool install failed.' }
 } finally {
     Pop-Location
 }
