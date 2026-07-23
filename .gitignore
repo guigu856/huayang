@@ -9,6 +9,7 @@ build/
 
 output/analysis_520/
 output/plugin/
+output/tmp-wheel-check/
 
 output/download/*
 !output/download/.gitkeep
