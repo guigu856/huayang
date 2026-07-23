@@ -1,0 +1,70 @@
+name: Installation checks
+
+on:
+  pull_request:
+    paths:
+      - "install.sh"
+      - "install.ps1"
+      - "video_create_plugin/installation.py"
+      - "video_create_plugin/admin/__main__.py"
+      - "tests/test_installation_cli.py"
+      - "tests/test_install_sh.py"
+      - ".github/workflows/installation-checks.yml"
+  push:
+    branches: [main]
+    paths:
+      - "install.sh"
+      - "install.ps1"
+      - "video_create_plugin/installation.py"
+      - "video_create_plugin/admin/__main__.py"
+      - "tests/test_installation_cli.py"
+      - "tests/test_install_sh.py"
+      - ".github/workflows/installation-checks.yml"
+
+jobs:
+  installation-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Sync test dependencies
+        run: uv sync --extra dev
+
+      - name: Validate Unix installer syntax
+        if: runner.os != 'Windows'
+        shell: bash
+        run: bash -n install.sh
+
+      - name: Validate Windows installer syntax
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path install.ps1), [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) {
+            $errors | ForEach-Object { Write-Error $_.Message }
+            exit 1
+          }
+
+      - name: Run installation tests
+        run: uv run pytest tests/test_installation_cli.py tests/test_install_sh.py
+
+      - name: Lint installation changes
+        run: uv run ruff check video_create_plugin/installation.py video_create_plugin/admin/__main__.py tests/test_installation_cli.py tests/test_install_sh.py
+
+      - name: Type-check installation code
+        run: uv run mypy video_create_plugin/installation.py video_create_plugin/admin/__main__.py
