@@ -146,7 +146,13 @@ def print_doctor(checks: list[DoctorCheck], *, json_output: bool) -> None:
 
 
 def _run_command(command: list[str]) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(command, capture_output=True, text=True, encoding="utf-8", check=False)
+    return subprocess.run(
+        command,
+        capture_output=True,
+        text=True,
+        errors="replace",
+        check=False,
+    )
 
 
 def _run_codex_idempotent(
@@ -160,6 +166,12 @@ def _run_codex_idempotent(
         return
     output = "\n".join(part.strip() for part in (result.stdout, result.stderr) if part.strip())
     normalized = output.lower()
-    if any(marker in normalized for marker in ("already exists", "already added", "already installed")):
+    existing_markers = (
+        "already exists",
+        "already added",
+        "already installed",
+        "already registered",
+    )
+    if any(marker in normalized for marker in existing_markers):
         return
     raise RuntimeError(f"{action}失败：{output or f'退出码 {result.returncode}'}")
