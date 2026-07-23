@@ -1,0 +1,32 @@
+name: install-test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  one-line-install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: One-line install (Unix)
+        if: runner.os != 'Windows'
+        run: curl -fsSL https://raw.githubusercontent.com/guigu856/huayang/main/install.sh | bash
+
+      - name: One-line install (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: iwr -useb https://raw.githubusercontent.com/guigu856/huayang/main/install.ps1 | iex
+
+      - name: Verify CLI installed (Unix)
+        if: runner.os != 'Windows'
+        run: ls -la "$HOME/.local/bin" | grep huayang
+
+      - name: Verify CLI installed (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: Get-ChildItem "$env:USERPROFILE\.local\bin\huayang*.exe"
