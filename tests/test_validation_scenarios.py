@@ -317,11 +317,9 @@ def test_stage_one_direction_stays_semantic_and_has_no_execution_details() -> No
         scenario = load_scenario(bundled_scenario_path(scenario_name))
         direction = planner.build_creative_direction(
             scenario,
-            "retrieval_stage1",
             _knowledge("video_type"),
         )
-        payload = direction.model_dump(exclude={"schema_version", "user_intent", "retrieval_ids"})
-        semantic_plan = "\n".join(str(value) for value in payload.values())
+        semantic_plan = re.sub(r"## 用户意图\n.*?(?=\n## )", "", direction, flags=re.DOTALL)
 
         assert not re.search(r"[A-Za-z]:[\\/]", semantic_plan)
         assert not re.search(r"\d", semantic_plan)
@@ -542,8 +540,9 @@ def test_creation_runner_uses_application_boundary_and_submits_bound_execution(
                 "stage_projections"
             ]
         }
+        direction_text = (run_root / "stage1_creative_direction.md").read_text(encoding="utf-8")
+        assert projections["creative_direction"]["recommendations"][0]["text"] in direction_text
         for path, stage in (
-            ("stage1_creative_direction.json", "creative_direction"),
             ("stage2_preparation_package.json", "resource_preparation"),
             ("stage3_editing_specification.json", "editing_specification"),
         ):
@@ -559,7 +558,7 @@ def test_creation_runner_uses_application_boundary_and_submits_bound_execution(
     listed_paths = {entry["path"] for entry in manifest["files"]}
     assert {
         "scenario.json",
-        "stage1_creative_direction.json",
+        "stage1_creative_direction.md",
         "stage2_preparation_package.json",
         "stage3_editing_specification.json",
         "preflight.json",

@@ -62,7 +62,6 @@ from video_create_plugin.analysis import (
 from video_create_plugin.artifacts import ArtifactStore
 from video_create_plugin.context import ContextCatalog
 from video_create_plugin.creation import (
-    CreativeDirection,
     PreparationPackage,
     PreparationScopeError,
     validate_preparation_scope,
@@ -1748,6 +1747,10 @@ class PluginApplication:
         }
         if artifact_type != expected_artifact_types[stage.stage_type]:
             raise PluginError("artifact_type_invalid", "阶段主产物类型与阶段契约不一致")
+        if stage.stage_type == "creative_direction":
+            if not content.strip():
+                raise PluginError("artifact_schema_invalid", "阶段主产物不能为空")
+            return
         try:
             payload = json.loads(content)
         except json.JSONDecodeError as error:
@@ -1759,15 +1762,6 @@ class PluginApplication:
             if stage.stage_type == "reference_study":
                 report = ReferenceReportManifest.model_validate(payload)
                 self._validate_reference_report_evidence(report, stage)
-            elif stage.stage_type == "creative_direction":
-                direction = CreativeDirection.model_validate(payload)
-                self._validate_reference_context(
-                    task=task,
-                    stage=stage,
-                    binding=direction.reference_context,
-                    projection_stage="creative_direction",
-                )
-                retrievals = ("stage1", direction.retrieval_ids)
             elif stage.stage_type == "resource_preparation":
                 preparation = PreparationPackage.model_validate(payload)
                 self._validate_reference_context(

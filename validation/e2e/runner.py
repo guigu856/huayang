@@ -159,11 +159,10 @@ class CreationScenarioRunner:
             expected_stage="creative_direction",
             creation_stage="stage1",
             query=scenario.knowledge_queries.stage1,
-            output_path=run_root / "stage1_creative_direction.json",
+            output_path=run_root / "stage1_creative_direction.md",
             artifact_type="creative_direction",
             build=lambda retrieval_id, result, projection: self.planner.build_creative_direction(
                 scenario,
-                retrieval_id,
                 result,
                 projection,
             ),
@@ -571,7 +570,7 @@ class CreationScenarioRunner:
         artifact_type: str,
         build: Callable[
             [str, SearchResult, StageKnowledgeProjection | None],
-            BaseModel,
+            str,
         ],
         scenario_id: str,
         reference_guided: bool,
@@ -592,13 +591,10 @@ class CreationScenarioRunner:
             query,
             creation_stage,
         )
-        content = self._attach_reference_context(
-            build(
-                audit.retrieval_id,
-                result,
-                (reference_context.projection if reference_context is not None else None),
-            ),
-            reference_context,
+        content = build(
+            audit.retrieval_id,
+            result,
+            (reference_context.projection if reference_context is not None else None),
         )
         artifact, freeze = self._submit_and_confirm(
             application=application,
@@ -643,12 +639,15 @@ class CreationScenarioRunner:
         application: PluginApplication,
         envelope: StageEnvelope,
         output_path: Path,
-        content: BaseModel,
+        content: BaseModel | str,
         artifact_type: str,
         scenario_id: str,
         evidence_refs: list[str],
     ) -> tuple[ArtifactEnvelope, FreezeRecord]:
-        write_json(output_path, content.model_dump(mode="json"))
+        if isinstance(content, str):
+            output_path.write_text(content, encoding="utf-8")
+        else:
+            write_json(output_path, content.model_dump(mode="json"))
         artifact = ArtifactEnvelope.model_validate_json(
             json.dumps(
                 application.submit_artifact(

@@ -7,22 +7,6 @@ from pydantic import Field, model_validator
 from ..models import PluginModel, ReferenceContextBinding
 
 
-class CreativeDirection(PluginModel):
-    schema_version: Literal["1.0"] = "1.0"
-    title: str = Field(min_length=1, max_length=200)
-    user_intent: str = Field(min_length=1)
-    video_type: str = Field(min_length=1)
-    core_mechanism: str = Field(min_length=1)
-    production_method: str = Field(min_length=1)
-    visual_language: str = Field(min_length=1)
-    rhythm_and_sound: str = Field(min_length=1)
-    transition_principles: str = Field(min_length=1)
-    asset_and_music_traits: str = Field(min_length=1)
-    viewing_experience: str = Field(min_length=1)
-    retrieval_ids: list[str] = Field(min_length=1)
-    reference_context: ReferenceContextBinding | None = None
-
-
 class SourceRange(PluginModel):
     start_us: int = Field(ge=0)
     end_us: int = Field(gt=0)

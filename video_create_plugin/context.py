@@ -225,9 +225,9 @@ _REGISTRATIONS = (
     _ResourceRegistration(
         "creative-direction",
         "schema",
-        "schemas/creative-direction.schema.json",
-        "总体方案 Schema",
-        "阶段一七板块 Manifest 合同",
+        "schemas/creative-direction.contract.md",
+        "总体方案输出合同",
+        "阶段一自然语言总体方案的板块与边界",
     ),
     _ResourceRegistration(
         "resource-preparation",

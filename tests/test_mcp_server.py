@@ -1318,30 +1318,27 @@ def test_mcp_knowledge_search_returns_auditable_retrieval_for_stage_artifact(
                 },
             )
             search_data = _tool_payload(searched.structuredContent)["data"]
-            retrieval_id = str(search_data["retrieval"]["retrieval_id"])
+            assert search_data["retrieval"]["retrieval_id"]
             assert search_data["retrieval"]["stage"] == "stage1"
             assert search_data["result"]["shared_creation_knowledge"]
 
-            direction = {
-                "schema_version": "1.0",
-                "title": "节奏城市",
-                "user_intent": "制作一秒硬切并带画中画的短视频",
-                "video_type": "节奏型短视频",
-                "core_mechanism": "主镜头按稳定节奏硬切，辅助层形成局部密度峰值",
-                "production_method": "先组织音乐能量，再配置画面主次",
-                "visual_language": "主体清晰、画中画短暂进入",
-                "rhythm_and_sound": "重拍切换，新音色触发辅助层",
-                "transition_principles": "主画面硬切，镜内叠层连续",
-                "asset_and_music_traits": "运动方向协调、瞬态清晰",
-                "viewing_experience": "紧凑、丰富、仍可辨认",
-                "retrieval_ids": [retrieval_id],
-            }
+            direction = (
+                "# 节奏城市\n\n"
+                "## 用户意图\n制作一秒硬切并带画中画的短视频\n\n"
+                "## 视频类型与核心机制\n节奏型短视频。主镜头按稳定节奏硬切，辅助层形成局部密度峰值\n\n"
+                "## 整体制作方法\n先组织音乐能量，再配置画面主次\n\n"
+                "## 视觉语言与画面组织\n主体清晰、画中画短暂进入\n\n"
+                "## 节奏与声音\n重拍切换，新音色触发辅助层\n\n"
+                "## 转场与镜头连接\n主画面硬切，镜内叠层连续\n\n"
+                "## 素材与音乐性质\n运动方向协调、瞬态清晰\n\n"
+                "## 预期观看体验\n紧凑、丰富、仍可辨认\n"
+            )
             submitted = await session.call_tool(
                 "workflow_submit_artifact",
                 {
                     "access_handle": handle,
                     "artifact_type": "creative_direction",
-                    "content": json.dumps(direction, ensure_ascii=False),
+                    "content": direction,
                     "schema_version": "1.0",
                     "producer_kind": "agent",
                     "producer_id": "mcp-test-agent",

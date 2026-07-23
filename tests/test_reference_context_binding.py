@@ -61,29 +61,7 @@ def test_reference_guided_creation_binds_each_stage_to_frozen_report_projection(
     )
 
     creative = app.workflow.get_stage_envelope(task.task_id)
-    creative_context = app.reference_creation_context(creative.stage_access_handle)
-    creative_retrieval = _search(app, creative.stage_access_handle)
-    direction = _direction(creative_retrieval, creative_context["binding"])
-
-    without_binding = {**direction, "reference_context": None}
-    with pytest.raises(PluginError) as missing:
-        _submit_primary(app, creative.stage_access_handle, "creative_direction", without_binding)
-    assert missing.value.code == "reference_context_required"
-
-    wrong_binding = {
-        **creative_context["binding"],
-        "stage_projection_sha256": "0" * 64,
-    }
-    with pytest.raises(PluginError) as mismatch:
-        _submit_primary(
-            app,
-            creative.stage_access_handle,
-            "creative_direction",
-            _direction(creative_retrieval, wrong_binding),
-        )
-    assert mismatch.value.code == "reference_context_mismatch"
-
-    _submit_primary(app, creative.stage_access_handle, "creative_direction", direction)
+    _submit_primary(app, creative.stage_access_handle, "creative_direction", _DIRECTION_TEXT)
     _approve(app, task.task_id, "creative")
 
     resource = app.workflow.get_stage_envelope(task.task_id)
@@ -92,6 +70,30 @@ def test_reference_guided_creation_binds_each_stage_to_frozen_report_projection(
         report_artifact.as_ref().model_dump(mode="json")
     )
     resource_retrieval = _search(app, resource.stage_access_handle)
+
+    without_binding = _preparation(image_path, bgm_path, resource_retrieval, None)
+    with pytest.raises(PluginError) as missing:
+        _submit_primary(
+            app,
+            resource.stage_access_handle,
+            "preparation_package",
+            without_binding,
+        )
+    assert missing.value.code == "reference_context_required"
+
+    wrong_binding = {
+        **resource_context["binding"],
+        "stage_projection_sha256": "0" * 64,
+    }
+    with pytest.raises(PluginError) as mismatch:
+        _submit_primary(
+            app,
+            resource.stage_access_handle,
+            "preparation_package",
+            _preparation(image_path, bgm_path, resource_retrieval, wrong_binding),
+        )
+    assert mismatch.value.code == "reference_context_mismatch"
+
     preparation = _preparation(
         image_path,
         bgm_path,
@@ -124,13 +126,31 @@ def test_reference_guided_creation_binds_each_stage_to_frozen_report_projection(
 
     original = app.workflow.create_task("original_creation")
     original_stage = app.workflow.get_stage_envelope(original.task_id)
-    original_retrieval = _search(app, original_stage.stage_access_handle)
+    _submit_primary(
+        app,
+        original_stage.stage_access_handle,
+        "creative_direction",
+        _DIRECTION_TEXT,
+    )
+    original_approval = app.workflow.get_stage_envelope(original.task_id)
+    app.workflow.record_approval(
+        access_handle=original_approval.stage_access_handle,
+        user_confirmation_ref="test://approved/original-creative",
+        confirmation_assurance="audit_only",
+    )
+    original_resource = app.workflow.get_stage_envelope(original.task_id)
+    original_retrieval = _search(app, original_resource.stage_access_handle)
     with pytest.raises(PluginError) as forbidden:
         _submit_primary(
             app,
-            original_stage.stage_access_handle,
-            "creative_direction",
-            _direction(original_retrieval, creative_context["binding"]),
+            original_resource.stage_access_handle,
+            "preparation_package",
+            _preparation(
+                image_path,
+                bgm_path,
+                original_retrieval,
+                resource_context["binding"],
+            ),
         )
     assert forbidden.value.code == "reference_context_forbidden"
 
@@ -183,29 +203,24 @@ def _search(app: PluginApplication, access_handle: str) -> str:
     return str(result["retrieval"]["retrieval_id"])
 
 
-def _direction(retrieval_id: str, binding: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "schema_version": "1.0",
-        "title": "参考节奏重构",
-        "user_intent": "使用新素材重构参考节奏体验",
-        "video_type": "节奏型短视频",
-        "core_mechanism": "按音乐层级组织镜头与辅助层",
-        "production_method": "先定能量结构，再组织画面主次",
-        "visual_language": "主画面清晰，辅助层短暂进入",
-        "rhythm_and_sound": "重拍切换，新音色触发辅助层",
-        "transition_principles": "主画面硬切，镜内叠层连续",
-        "asset_and_music_traits": "素材运动协调，音乐瞬态清晰",
-        "viewing_experience": "紧凑、丰富且仍可辨认",
-        "retrieval_ids": [retrieval_id],
-        "reference_context": binding,
-    }
+_DIRECTION_TEXT = (
+    "# 参考节奏重构\n\n"
+    "## 用户意图\n使用新素材重构参考节奏体验\n\n"
+    "## 视频类型与核心机制\n节奏型短视频。按音乐层级组织镜头与辅助层\n\n"
+    "## 整体制作方法\n先定能量结构，再组织画面主次\n\n"
+    "## 视觉语言与画面组织\n主画面清晰，辅助层短暂进入\n\n"
+    "## 节奏与声音\n重拍切换，新音色触发辅助层\n\n"
+    "## 转场与镜头连接\n主画面硬切，镜内叠层连续\n\n"
+    "## 素材与音乐性质\n素材运动协调，音乐瞬态清晰\n\n"
+    "## 预期观看体验\n紧凑、丰富且仍可辨认\n"
+)
 
 
 def _preparation(
     image_path: Path,
     bgm_path: Path,
     retrieval_id: str,
-    binding: dict[str, Any],
+    binding: dict[str, Any] | None,
 ) -> dict[str, Any]:
     return {
         "schema_version": "1.0",
@@ -317,12 +332,12 @@ def _submit_primary(
     app: PluginApplication,
     access_handle: str,
     artifact_type: str,
-    payload: dict[str, Any],
+    payload: dict[str, Any] | str,
 ) -> dict[str, Any]:
     return app.submit_artifact(
         access_handle=access_handle,
         artifact_type=artifact_type,
-        content=json.dumps(payload, ensure_ascii=False),
+        content=payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False),
         schema_version="1.0",
         producer_kind="agent",
         producer_id="test-creation-agent",

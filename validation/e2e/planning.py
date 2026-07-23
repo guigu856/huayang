@@ -4,7 +4,6 @@ from components.render_inspection import OverlayExpectation, RenderExpectation
 from video_create_plugin.creation import (
     BgmPackage,
     BgmSection,
-    CreativeDirection,
     PreparationPackage,
     PreparedMaterial,
     SourceRange,
@@ -61,37 +60,44 @@ class ScenarioPlanner:
     def build_creative_direction(
         self,
         scenario: ScenarioDefinition,
-        retrieval_id: str,
         knowledge: SearchResult,
         reference_projection: StageKnowledgeProjection | None = None,
-    ) -> CreativeDirection:
+    ) -> str:
         basis = _planning_basis(knowledge, reference_projection)
         if scenario.profile == "fast_cut_pip":
-            return CreativeDirection(
-                title="脉冲驱动短切与局部叠层重创作",
-                user_intent=scenario.user_intent,
-                video_type="高密度节拍驱动动画混剪",
-                core_mechanism=f"稳定脉冲驱动短镜头组，局部辅助层提高节奏单元密度。规划依据：{basis}",
-                production_method="选用与参考主题不同且视觉角色明确的新素材，按可迁移节奏机制重新组织",
-                visual_language="全屏主层保持主体可读，局部辅助层只在完整节奏单元中进入与退出",
-                rhythm_and_sound="主画面响应音乐主脉冲，辅助层响应次级节奏或音色变化",
-                transition_principles="主画面变化保持直接清晰，辅助层不跨越语义段落",
-                asset_and_music_traits="主体清晰、构图差异明确的新素材，音乐具有稳定脉冲与能量推进",
-                viewing_experience="连续推进中保持画面可辨识，并以局部叠层形成视觉刺激",
-                retrieval_ids=[retrieval_id],
-            )
-        return CreativeDirection(
-            title="低密度长镜与克制叠层重创作",
-            user_intent=scenario.user_intent,
-            video_type="低密度舒缓叠层混剪",
-            core_mechanism=f"少量长镜头形成呼吸，克制的持续辅助层建立空间深度。规划依据：{basis}",
-            production_method="使用可持续观看、内部运动连贯的新素材，以低切换密度重新组织",
-            visual_language="画面以长时间全屏主体为主，辅助层缓慢保持而非频繁闪现",
-            rhythm_and_sound="画面段落变化响应音乐结构，并按多拍跨度形成长句",
-            transition_principles="只在长段落边界直接切换，避免高频转场堆叠",
-            asset_and_music_traits="选择主体稳定、构图可持续展开的新素材，音乐气质平静且段落清楚",
-            viewing_experience="观看节奏留有呼吸，层次变化集中而克制",
-            retrieval_ids=[retrieval_id],
+            sections = {
+                "title": "脉冲驱动短切与局部叠层重创作",
+                "video_type": "高密度节拍驱动动画混剪",
+                "core_mechanism": f"稳定脉冲驱动短镜头组，局部辅助层提高节奏单元密度。规划依据：{basis}",
+                "production_method": "选用与参考主题不同且视觉角色明确的新素材，按可迁移节奏机制重新组织",
+                "visual_language": "全屏主层保持主体可读，局部辅助层只在完整节奏单元中进入与退出",
+                "rhythm_and_sound": "主画面响应音乐主脉冲，辅助层响应次级节奏或音色变化",
+                "transition_principles": "主画面变化保持直接清晰，辅助层不跨越语义段落",
+                "asset_and_music_traits": "主体清晰、构图差异明确的新素材，音乐具有稳定脉冲与能量推进",
+                "viewing_experience": "连续推进中保持画面可辨识，并以局部叠层形成视觉刺激",
+            }
+        else:
+            sections = {
+                "title": "低密度长镜与克制叠层重创作",
+                "video_type": "低密度舒缓叠层混剪",
+                "core_mechanism": f"少量长镜头形成呼吸，克制的持续辅助层建立空间深度。规划依据：{basis}",
+                "production_method": "使用可持续观看、内部运动连贯的新素材，以低切换密度重新组织",
+                "visual_language": "画面以长时间全屏主体为主，辅助层缓慢保持而非频繁闪现",
+                "rhythm_and_sound": "画面段落变化响应音乐结构，并按多拍跨度形成长句",
+                "transition_principles": "只在长段落边界直接切换，避免高频转场堆叠",
+                "asset_and_music_traits": "选择主体稳定、构图可持续展开的新素材，音乐气质平静且段落清楚",
+                "viewing_experience": "观看节奏留有呼吸，层次变化集中而克制",
+            }
+        return (
+            f"# {sections['title']}\n\n"
+            f"## 用户意图\n{scenario.user_intent}\n\n"
+            f"## 视频类型与核心机制\n{sections['video_type']}。{sections['core_mechanism']}\n\n"
+            f"## 整体制作方法\n{sections['production_method']}\n\n"
+            f"## 视觉语言与画面组织\n{sections['visual_language']}\n\n"
+            f"## 节奏与声音\n{sections['rhythm_and_sound']}\n\n"
+            f"## 转场与镜头连接\n{sections['transition_principles']}\n\n"
+            f"## 素材与音乐性质\n{sections['asset_and_music_traits']}\n\n"
+            f"## 预期观看体验\n{sections['viewing_experience']}\n"
         )
 
     def build_preparation_package(
