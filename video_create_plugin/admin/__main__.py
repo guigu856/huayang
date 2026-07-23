@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
 import threading
 import webbrowser
 from collections.abc import Sequence
@@ -9,16 +10,11 @@ from collections.abc import Sequence
 import uvicorn
 
 from video_create_plugin.installation import install_codex_plugin, print_doctor, run_doctor
-
 from .api import create_app
 
 
 def main(argv: Sequence[str] | None = None) -> None:
-    arguments = list(argv) if argv is not None else None
-    if arguments is None:
-        import sys
-
-        arguments = sys.argv[1:]
+    arguments = list(argv) if argv is not None else sys.argv[1:]
     if not arguments:
         _serve_admin()
         return
