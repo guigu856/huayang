@@ -1,0 +1,392 @@
+[
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "video_type",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "通过主体抠像、独立背景、前景遮挡与字幕的稳定层级，重建具有空间深度的长镜头合成，而非追求高频切换。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "viewing_experience",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "沉浸、层次清晰、叙事稳定，并在段落转换处形成明确的空间与色调变化。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.82,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "asset_selection",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "优先筹备边缘干净的角色透明素材、可容纳角色的独立背景、前景遮挡元素和可读字幕样式。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.86,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_structure",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "选择能量连续、段落变化克制的音乐；长镜以段落和延音组织，镜内层变化只在关键声部或能量转折处响应。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/beat_grid.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/tempo_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/transient_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.78,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "section",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "rhythm_unit",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "稳定主构图 → 辅助层持续变化 → 色调与空间共同转场 → 新主构图长停留。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.9,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "layering_rule",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "主体、背景、前景遮挡、字幕和局部光效分别建层，并用遮挡关系而非随机缩放制造深度。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "reference_content",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "三段式动漫重合成：人物主体、独立背景、字幕与局部前景遮挡持续并行，主画面只发生两次语义段切换。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/media_probe.json"
+    ],
+    "fact_status": "observed",
+    "confidence": 1.0,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_measurement",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片 DSP 速度候选为 79.507 BPM，属于 mixed_program_audio 推测值。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/audio/tempo_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 1.0,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_08_cutout_recompose",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_08_cutout_recompose",
+      "revision": 1,
+      "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_08_cutout_recompose",
+        "revision": 1,
+        "sha256": "0b7887c24403e1413d23a1cc7c842ed0b04d41116d71c199719678a3e577ad1d"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "reference_shot_timeline",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片人工语义时间线包含 3 个主画面段；自动边界候选需逐项区分硬切、镜内动画和整体效果。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/08_cutout_recompose/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "observed",
+    "confidence": 0.95,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "08_cutout_recompose"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  }
+]

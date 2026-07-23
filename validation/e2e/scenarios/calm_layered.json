@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "calm_layered",
+  "profile": "calm_layered",
+  "title": "低密度长镜与克制叠层重创作",
+  "user_intent": "做一个与一秒快切相反的舒缓视频，用少量长镜头和克制的长停留叠层。",
+  "duration_us": 6000000,
+  "canvas": {
+    "width": 640,
+    "height": 360,
+    "fps": 30.0
+  },
+  "main_shot_count": 3,
+  "minimum_distinct_visual_assets": 4,
+  "forbidden_source_sha256s": [
+    "41e33f413403767c2a4217bf0ee0bad47a84769ae5e8868644549a073d2367ab"
+  ],
+  "source_clips": [
+    {
+      "asset_id": "material_calm_01",
+      "name": "抠像重合成长镜",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\08从动漫片段中抠出人物，得到透明 PNG、PNG 序列或带 Alpha 的短视频，再与独立背景、字幕和特效重新合成.mp4",
+      "source_start_us": 4000000,
+      "extract_duration_us": 2400000,
+      "content_summary": "角色与独立背景持续合成的长画面",
+      "selection_traits": ["主体稳定可读", "适合两秒连续观看"]
+    },
+    {
+      "asset_id": "material_calm_02",
+      "name": "动画拼贴长镜",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\视觉 Composition 的动画拼贴混剪.mp4",
+      "source_start_us": 30000000,
+      "extract_duration_us": 2400000,
+      "content_summary": "构图持续展开的动画拼贴长画面",
+      "selection_traits": ["构图有纵深", "减少切换仍有内部变化"]
+    },
+    {
+      "asset_id": "material_calm_03",
+      "name": "角色动作长镜",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\角色高燃混剪.mp4",
+      "source_start_us": 18000000,
+      "extract_duration_us": 2400000,
+      "content_summary": "保留完整动作过程的角色长画面",
+      "selection_traits": ["动作过程完整", "末段持续收束"]
+    },
+    {
+      "asset_id": "material_calm_04",
+      "name": "克制辅助叠层",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\08从动漫片段中抠出人物，得到透明 PNG、PNG 序列或带 Alpha 的短视频，再与独立背景、字幕和特效重新合成.mp4",
+      "source_start_us": 12000000,
+      "extract_duration_us": 2000000,
+      "content_summary": "用于一次长停留画中画的独立区间",
+      "selection_traits": ["与主层内容不同", "适合长时间并行展示"]
+    }
+  ],
+  "main_asset_ids": [
+    "material_calm_01",
+    "material_calm_02",
+    "material_calm_03"
+  ],
+  "pip_events": [
+    {
+      "pip_id": "pip_calm_01",
+      "shot_index": 1,
+      "asset_id": "material_calm_04",
+      "start_offset_us": 150000,
+      "duration_us": 1250000,
+      "transform": {"x": 390.0, "y": 205.0, "width": 230.0, "height": 130.0, "opacity": 0.88}
+    }
+  ],
+  "bgm": {
+    "asset_id": "material_bgm",
+    "path": "output/plugin/validation/bgm/derivatives/mixkit_443_556ae7a19c78_clip_0_6000.mp3",
+    "provenance_path": "output/plugin/validation/bgm/provenance/mixkit_443_556ae7a19c78_clip_0_6000.json",
+    "expected_sha256": "c7459c920f94d99e0c1dd3607a514b219af427cbfe69d1da2f6fc555fd12940b",
+    "mood_traits": ["平静", "放松", "多拍跨度", "低切换密度", "段落呼吸"]
+  },
+  "knowledge_queries": {
+    "stage1": {
+      "text": "与高频快切相反的低密度长镜头如何通过呼吸、层次和注意力引导形成观看体验",
+      "knowledge_types": ["video_type", "viewing_experience"],
+      "limit": 1
+    },
+    "stage2": {
+      "text": "舒缓长镜需要主体边缘清晰、独立背景、前景遮挡、字幕层级、持续可读构图与音乐候选段落",
+      "knowledge_types": ["asset_selection", "bgm_structure"],
+      "limit": 1
+    },
+    "stage3": {
+      "text": "稳定主构图、辅助层持续变化、色调与空间共同转场、新主构图长停留的低密度执行规格",
+      "knowledge_types": ["rhythm_unit", "layering_rule"],
+      "limit": 1
+    }
+  }
+}

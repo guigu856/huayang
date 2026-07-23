@@ -1,0 +1,392 @@
+[
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "video_type",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "用短镜头组与局部画中画递进，在不复刻原素材的前提下重建轻快、丰富、不断发现新细节的节奏。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "viewing_experience",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "轻快的发现感、连续的新鲜感与局部叠层带来的视觉丰富度。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.82,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "asset_selection",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "准备主题一致但视觉角色互补的主体、环境、运动和纹理素材；按运动方向、色彩区分与可读性筛选，不复用原片具体物象。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.86,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_structure",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "选择脉冲清晰且能量阶段有明显起伏的音乐；主切响应较强节奏层，局部叠层响应次级瞬态，停留段对应低能量或延音。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/beat_grid.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/tempo_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/transient_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.78,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "section",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "rhythm_unit",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "短切铺陈 → 局部叠层递进 → 多主体连切 → 低能量停留 → 稳定镜头收束。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.9,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "layering_rule",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "画中画只在一个完整节奏单元中递进进入、放大和退出，底层主画面保持可辨识。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "reference_content",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "以城市、交通、鸟群和街景碎片构成的高密度观察式混剪，主画面频繁更新，并在鸟群段引入列车画中画。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/media_probe.json"
+    ],
+    "fact_status": "observed",
+    "confidence": 1.0,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_measurement",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片 DSP 速度候选为 66.256 BPM，属于 mixed_program_audio 推测值。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/audio/tempo_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.709677,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_01_fastcut_pip",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_01_fastcut_pip",
+      "revision": 1,
+      "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_01_fastcut_pip",
+        "revision": 1,
+        "sha256": "431a4e629df9317ae14618e5debe06f686addb802211cc1e69535f532d5c9b88"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "reference_shot_timeline",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片人工语义时间线包含 50 个主画面段；自动边界候选需逐项区分硬切、镜内动画和整体效果。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/01_fastcut_pip/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "observed",
+    "confidence": 0.95,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "01_fastcut_pip"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  }
+]

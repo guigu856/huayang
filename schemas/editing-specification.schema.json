@@ -1,0 +1,558 @@
+{
+  "$defs": {
+    "ActionSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "action_id": {
+          "pattern": "^action_[A-Za-z0-9_-]+$",
+          "title": "Action Id",
+          "type": "string"
+        },
+        "shot_id": {
+          "pattern": "^shot_[A-Za-z0-9_-]+$",
+          "title": "Shot Id",
+          "type": "string"
+        },
+        "action_type": {
+          "enum": [
+            "visual_media",
+            "audio_media",
+            "text_overlay"
+          ],
+          "title": "Action Type",
+          "type": "string"
+        },
+        "timeline": {
+          "$ref": "#/$defs/TimeRange"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "pattern": "^material_[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TimeRange"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text"
+        },
+        "layer": {
+          "default": 0,
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Layer",
+          "type": "integer"
+        },
+        "transform": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StaticTransform"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "volume": {
+          "default": 1,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Volume",
+          "type": "number"
+        },
+        "required_capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Capabilities",
+          "type": "array"
+        },
+        "human_description": {
+          "minLength": 1,
+          "title": "Human Description",
+          "type": "string"
+        },
+        "audio_event_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Audio Event Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "action_id",
+        "shot_id",
+        "action_type",
+        "timeline",
+        "required_capabilities",
+        "human_description"
+      ],
+      "title": "ActionSpec",
+      "type": "object"
+    },
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 1,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "revision",
+        "sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "CanvasSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "maximum": 7680,
+          "minimum": 1,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "maximum": 7680,
+          "minimum": 1,
+          "title": "Height",
+          "type": "integer"
+        },
+        "fps": {
+          "exclusiveMinimum": 0,
+          "maximum": 240,
+          "title": "Fps",
+          "type": "number"
+        },
+        "background_color": {
+          "default": "#000000",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "title": "Background Color",
+          "type": "string"
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "fps"
+      ],
+      "title": "CanvasSpec",
+      "type": "object"
+    },
+    "FreezeRef": {
+      "additionalProperties": false,
+      "properties": {
+        "freeze_id": {
+          "minLength": 1,
+          "title": "Freeze Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_revision": {
+          "minimum": 1,
+          "title": "Artifact Revision",
+          "type": "integer"
+        },
+        "artifact_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Artifact Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freeze_id",
+        "artifact_id",
+        "artifact_revision",
+        "artifact_sha256"
+      ],
+      "title": "FreezeRef",
+      "type": "object"
+    },
+    "MaterialAsset": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "pattern": "^material_[A-Za-z0-9_-]+$",
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "video",
+            "image",
+            "audio"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "duration_us": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration Us"
+        },
+        "width": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Width"
+        },
+        "height": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Height"
+        },
+        "provenance_ref": {
+          "minLength": 1,
+          "title": "Provenance Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "kind",
+        "name",
+        "path",
+        "sha256",
+        "provenance_ref"
+      ],
+      "title": "MaterialAsset",
+      "type": "object"
+    },
+    "ReferenceContextBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "source_report_ref": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "source_report_freeze_ref": {
+          "$ref": "#/$defs/FreezeRef"
+        },
+        "report_content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Report Content Sha256",
+          "type": "string"
+        },
+        "projection_stage": {
+          "enum": [
+            "creative_direction",
+            "resource_preparation",
+            "editing_specification"
+          ],
+          "title": "Projection Stage",
+          "type": "string"
+        },
+        "stage_projection_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Stage Projection Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_report_ref",
+        "source_report_freeze_ref",
+        "report_content_sha256",
+        "projection_stage",
+        "stage_projection_sha256"
+      ],
+      "title": "ReferenceContextBinding",
+      "type": "object"
+    },
+    "ShotSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "shot_id": {
+          "pattern": "^shot_[A-Za-z0-9_-]+$",
+          "title": "Shot Id",
+          "type": "string"
+        },
+        "timeline": {
+          "$ref": "#/$defs/TimeRange"
+        },
+        "main_action_id": {
+          "pattern": "^action_[A-Za-z0-9_-]+$",
+          "title": "Main Action Id",
+          "type": "string"
+        },
+        "action_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Action Ids",
+          "type": "array"
+        },
+        "human_description": {
+          "minLength": 1,
+          "title": "Human Description",
+          "type": "string"
+        },
+        "audio_event_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Audio Event Refs",
+          "type": "array"
+        },
+        "transition_to_next": {
+          "enum": [
+            "hard_cut",
+            "end"
+          ],
+          "title": "Transition To Next",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shot_id",
+        "timeline",
+        "main_action_id",
+        "action_ids",
+        "human_description",
+        "transition_to_next"
+      ],
+      "title": "ShotSpec",
+      "type": "object"
+    },
+    "StaticTransform": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "default": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "default": 0,
+          "title": "Y",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "title": "Width",
+          "type": "number"
+        },
+        "height": {
+          "exclusiveMinimum": 0,
+          "title": "Height",
+          "type": "number"
+        },
+        "rotation": {
+          "default": 0,
+          "title": "Rotation",
+          "type": "number"
+        },
+        "opacity": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "width",
+        "height"
+      ],
+      "title": "StaticTransform",
+      "type": "object"
+    },
+    "TimeRange": {
+      "additionalProperties": false,
+      "properties": {
+        "start_us": {
+          "minimum": 0,
+          "title": "Start Us",
+          "type": "integer"
+        },
+        "end_us": {
+          "exclusiveMinimum": 0,
+          "title": "End Us",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_us",
+        "end_us"
+      ],
+      "title": "TimeRange",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "spec_id": {
+      "pattern": "^spec_[A-Za-z0-9_-]+$",
+      "title": "Spec Id",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "canvas": {
+      "$ref": "#/$defs/CanvasSpec"
+    },
+    "duration_us": {
+      "exclusiveMinimum": 0,
+      "title": "Duration Us",
+      "type": "integer"
+    },
+    "assets": {
+      "items": {
+        "$ref": "#/$defs/MaterialAsset"
+      },
+      "minItems": 1,
+      "title": "Assets",
+      "type": "array"
+    },
+    "shots": {
+      "items": {
+        "$ref": "#/$defs/ShotSpec"
+      },
+      "minItems": 1,
+      "title": "Shots",
+      "type": "array"
+    },
+    "actions": {
+      "items": {
+        "$ref": "#/$defs/ActionSpec"
+      },
+      "minItems": 1,
+      "title": "Actions",
+      "type": "array"
+    },
+    "beat_grid_us": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Beat Grid Us",
+      "type": "array"
+    },
+    "retrieval_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Retrieval Ids",
+      "type": "array"
+    },
+    "reference_context": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReferenceContextBinding"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "spec_id",
+    "title",
+    "canvas",
+    "duration_us",
+    "assets",
+    "shots",
+    "actions",
+    "retrieval_ids"
+  ],
+  "title": "EditingSpecification",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

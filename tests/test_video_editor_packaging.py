@@ -19,6 +19,9 @@ def test_wheel_contains_web_assets_and_serves_homepage_after_extraction(
         source_root / "components",
         ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
     )
+    shutil.copy2(project_root / ".mcp.json", source_root / ".mcp.json")
+    for directory in (".claude-plugin", ".codex-plugin", "rules", "schemas", "skills"):
+        shutil.copytree(project_root / directory, source_root / directory)
     wheel_dir = tmp_path / "wheel"
     wheel_dir.mkdir()
 

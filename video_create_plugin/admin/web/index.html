@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huayang · 视频创作管理</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">花</div>
+          <div>
+            <strong>HUAYANG</strong>
+            <span>视频创作控制台</span>
+          </div>
+        </div>
+        <nav aria-label="后台导航">
+          <button class="nav-item is-active" data-view="overview">
+            <span>概览</span><small>Overview</small>
+          </button>
+          <button class="nav-item" data-view="rules">
+            <span>Rules</span><small>角色与边界</small>
+          </button>
+          <button class="nav-item" data-view="skills">
+            <span>Skills</span><small>阶段思维</small>
+          </button>
+          <button class="nav-item" data-view="creation">
+            <span>创作产物</span><small>方案 · 规格 · 成片</small>
+          </button>
+          <button class="nav-item" data-view="learning">
+            <span>学习产物</span><small>分析 · 报告 · 知识</small>
+          </button>
+          <button class="nav-item" data-view="artifacts">
+            <span>Artifacts</span><small>工作流产物</small>
+          </button>
+        </nav>
+        <div class="sidebar-foot">
+          <span class="status-dot"></span>
+          <div><strong>本地服务</strong><small id="service-status">连接中</small></div>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">HUAYANG CONTROL ROOM</p>
+            <h1 id="page-title">创作系统概览</h1>
+          </div>
+          <button id="refresh-button" class="ghost-button" type="button">刷新数据</button>
+        </header>
+        <section id="content" class="content" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <dialog id="preview-dialog" class="preview-dialog">
+      <header>
+        <div>
+          <p class="eyebrow">OUTPUT PREVIEW</p>
+          <h2 id="preview-title">产物预览</h2>
+        </div>
+        <button id="preview-close" class="icon-button" aria-label="关闭预览">×</button>
+      </header>
+      <div id="preview-body" class="preview-body"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status"></div>
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

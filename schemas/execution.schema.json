@@ -1,0 +1,105 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "render_job_id": {
+      "pattern": "^render_[0-9a-f]{16}$",
+      "title": "Render Job Id",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Spec Sha256",
+      "type": "string"
+    },
+    "capability_registry_version": {
+      "minLength": 1,
+      "title": "Capability Registry Version",
+      "type": "string"
+    },
+    "project_id": {
+      "pattern": "^project_[0-9a-f]{16}$",
+      "title": "Project Id",
+      "type": "string"
+    },
+    "project_path": {
+      "minLength": 1,
+      "title": "Project Path",
+      "type": "string"
+    },
+    "project_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Project Sha256",
+      "type": "string"
+    },
+    "trace_map_path": {
+      "minLength": 1,
+      "title": "Trace Map Path",
+      "type": "string"
+    },
+    "trace_map_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Trace Map Sha256",
+      "type": "string"
+    },
+    "render_path": {
+      "minLength": 1,
+      "title": "Render Path",
+      "type": "string"
+    },
+    "render_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Render Sha256",
+      "type": "string"
+    },
+    "inspection_path": {
+      "minLength": 1,
+      "title": "Inspection Path",
+      "type": "string"
+    },
+    "inspection_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Inspection Sha256",
+      "type": "string"
+    },
+    "inspection_binding_path": {
+      "minLength": 1,
+      "title": "Inspection Binding Path",
+      "type": "string"
+    },
+    "inspection_binding_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Inspection Binding Sha256",
+      "type": "string"
+    },
+    "inspection_passed": {
+      "const": true,
+      "title": "Inspection Passed",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "render_job_id",
+    "spec_sha256",
+    "capability_registry_version",
+    "project_id",
+    "project_path",
+    "project_sha256",
+    "trace_map_path",
+    "trace_map_sha256",
+    "render_path",
+    "render_sha256",
+    "inspection_path",
+    "inspection_sha256",
+    "inspection_binding_path",
+    "inspection_binding_sha256",
+    "inspection_passed"
+  ],
+  "title": "ExecutionManifest",
+  "type": "object"
+}

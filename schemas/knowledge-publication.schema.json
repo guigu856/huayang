@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 1,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "revision",
+        "sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "publication_id": {
+      "pattern": "^publication_[0-9a-f]{16}$",
+      "title": "Publication Id",
+      "type": "string"
+    },
+    "source_task_id": {
+      "minLength": 1,
+      "title": "Source Task Id",
+      "type": "string"
+    },
+    "source_report_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "source_media_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Media Sha256",
+      "type": "string"
+    },
+    "publication_revision": {
+      "minimum": 1,
+      "title": "Publication Revision",
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "superseded"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "supersedes_publication_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Supersedes Publication Id"
+    },
+    "freeze_id": {
+      "minLength": 1,
+      "title": "Freeze Id",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "collection_counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "propertyNames": {
+        "enum": [
+          "creation_knowledge",
+          "reference_evidence"
+        ]
+      },
+      "title": "Collection Counts",
+      "type": "object"
+    },
+    "embedding_version": {
+      "default": "zh-char-ngram-hash-v1-d384-n1-3",
+      "title": "Embedding Version",
+      "type": "string"
+    },
+    "embedding_dimension": {
+      "default": 384,
+      "title": "Embedding Dimension",
+      "type": "integer"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "publication_id",
+    "source_task_id",
+    "source_report_ref",
+    "source_media_sha256",
+    "publication_revision",
+    "status",
+    "freeze_id",
+    "content_sha256",
+    "collection_counts",
+    "created_at"
+  ],
+  "title": "Publication",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

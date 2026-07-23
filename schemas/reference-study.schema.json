@@ -1,0 +1,890 @@
+{
+  "$defs": {
+    "BgmAnalysis": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "audio_scope": {
+          "enum": [
+            "mixed_program_audio",
+            "isolated_bgm",
+            "unknown"
+          ],
+          "title": "Audio Scope",
+          "type": "string"
+        },
+        "duration_us": {
+          "exclusiveMinimum": 0,
+          "title": "Duration Us",
+          "type": "integer"
+        },
+        "tempo_hypotheses": {
+          "items": {
+            "$ref": "#/$defs/TempoHypothesis"
+          },
+          "title": "Tempo Hypotheses",
+          "type": "array"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/$defs/BgmSection"
+          },
+          "minItems": 1,
+          "title": "Sections",
+          "type": "array"
+        },
+        "rhythm_layers": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Rhythm Layers",
+          "type": "array"
+        },
+        "sound_layer_changes": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Sound Layer Changes",
+          "type": "array"
+        },
+        "energy_flow": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Energy Flow",
+          "type": "array"
+        },
+        "editing_following": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Editing Following",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "audio_scope",
+        "duration_us",
+        "sections",
+        "rhythm_layers",
+        "energy_flow",
+        "editing_following"
+      ],
+      "title": "BgmAnalysis",
+      "type": "object"
+    },
+    "BgmSection": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "section_id": {
+          "minLength": 1,
+          "title": "Section Id",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "start_timestamp_us": {
+          "minimum": 0,
+          "title": "Start Timestamp Us",
+          "type": "integer"
+        },
+        "end_timestamp_us": {
+          "exclusiveMinimum": 0,
+          "title": "End Timestamp Us",
+          "type": "integer"
+        },
+        "energy_level": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Energy Level",
+          "type": "number"
+        },
+        "musical_function": {
+          "$ref": "#/$defs/Claim"
+        },
+        "energy_direction": {
+          "$ref": "#/$defs/Claim"
+        },
+        "editing_relation": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "section_id",
+        "label",
+        "start_timestamp_us",
+        "end_timestamp_us",
+        "energy_level",
+        "musical_function",
+        "energy_direction",
+        "editing_relation"
+      ],
+      "title": "BgmSection",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "minLength": 1,
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "fact",
+            "inference",
+            "opinion",
+            "unverified"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim_id",
+        "text",
+        "status"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "CreationContextProjection": {
+      "additionalProperties": false,
+      "properties": {
+        "core_goal": {
+          "$ref": "#/$defs/Claim"
+        },
+        "transferable_patterns": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Transferable Patterns",
+          "type": "array"
+        },
+        "non_transferable_specifics": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Non Transferable Specifics",
+          "type": "array"
+        },
+        "new_material_reconstruction_guidance": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "New Material Reconstruction Guidance",
+          "type": "array"
+        },
+        "stage_projections": {
+          "items": {
+            "$ref": "#/$defs/StageKnowledgeProjection"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Stage Projections",
+          "type": "array"
+        }
+      },
+      "required": [
+        "core_goal",
+        "transferable_patterns",
+        "non_transferable_specifics",
+        "new_material_reconstruction_guidance",
+        "stage_projections"
+      ],
+      "title": "CreationContextProjection",
+      "type": "object"
+    },
+    "EditAction": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "action_id": {
+          "minLength": 1,
+          "title": "Action Id",
+          "type": "string"
+        },
+        "action_type": {
+          "minLength": 1,
+          "title": "Action Type",
+          "type": "string"
+        },
+        "start_timestamp_us": {
+          "minimum": 0,
+          "title": "Start Timestamp Us",
+          "type": "integer"
+        },
+        "end_timestamp_us": {
+          "minimum": 0,
+          "title": "End Timestamp Us",
+          "type": "integer"
+        },
+        "target_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Layer Ids",
+          "type": "array"
+        },
+        "description": {
+          "$ref": "#/$defs/Claim"
+        },
+        "timing_relation_to_music": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "action_id",
+        "action_type",
+        "start_timestamp_us",
+        "end_timestamp_us",
+        "target_layer_ids",
+        "description",
+        "timing_relation_to_music"
+      ],
+      "title": "EditAction",
+      "type": "object"
+    },
+    "EditingGrammar": {
+      "additionalProperties": false,
+      "properties": {
+        "rhythm_units": {
+          "items": {
+            "$ref": "#/$defs/RhythmUnit"
+          },
+          "minItems": 1,
+          "title": "Rhythm Units",
+          "type": "array"
+        },
+        "cutting_rules": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Cutting Rules",
+          "type": "array"
+        },
+        "layering_rules": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Layering Rules",
+          "type": "array"
+        },
+        "motion_rules": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Motion Rules",
+          "type": "array"
+        },
+        "transition_rules": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Transition Rules",
+          "type": "array"
+        },
+        "density_rules": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Density Rules",
+          "type": "array"
+        },
+        "reusable_patterns": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Reusable Patterns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "rhythm_units",
+        "reusable_patterns"
+      ],
+      "title": "EditingGrammar",
+      "type": "object"
+    },
+    "EffectObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "effect_id": {
+          "minLength": 1,
+          "title": "Effect Id",
+          "type": "string"
+        },
+        "effect_type": {
+          "minLength": 1,
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "target_scope": {
+          "enum": [
+            "layer",
+            "composition",
+            "transition"
+          ],
+          "title": "Target Scope",
+          "type": "string"
+        },
+        "target_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Layer Ids",
+          "type": "array"
+        },
+        "description": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "effect_id",
+        "effect_type",
+        "target_scope",
+        "description"
+      ],
+      "title": "EffectObservation",
+      "type": "object"
+    },
+    "ReferenceReportContent": {
+      "additionalProperties": false,
+      "properties": {
+        "video_overview": {
+          "$ref": "#/$defs/VideoOverview"
+        },
+        "bgm_analysis": {
+          "$ref": "#/$defs/BgmAnalysis"
+        },
+        "shot_analyses": {
+          "items": {
+            "$ref": "#/$defs/ReferenceShotAnalysis"
+          },
+          "minItems": 1,
+          "title": "Shot Analyses",
+          "type": "array"
+        },
+        "editing_grammar": {
+          "$ref": "#/$defs/EditingGrammar"
+        },
+        "viewing_experience": {
+          "$ref": "#/$defs/ViewingExperience"
+        },
+        "creation_context_projection": {
+          "$ref": "#/$defs/CreationContextProjection"
+        }
+      },
+      "required": [
+        "video_overview",
+        "bgm_analysis",
+        "shot_analyses",
+        "editing_grammar",
+        "viewing_experience",
+        "creation_context_projection"
+      ],
+      "title": "ReferenceReportContent",
+      "type": "object"
+    },
+    "ReferenceShotAnalysis": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "shot_id": {
+          "minLength": 1,
+          "title": "Shot Id",
+          "type": "string"
+        },
+        "start_timestamp_us": {
+          "minimum": 0,
+          "title": "Start Timestamp Us",
+          "type": "integer"
+        },
+        "end_timestamp_us": {
+          "exclusiveMinimum": 0,
+          "title": "End Timestamp Us",
+          "type": "integer"
+        },
+        "summary": {
+          "$ref": "#/$defs/Claim"
+        },
+        "layers": {
+          "items": {
+            "$ref": "#/$defs/VisualLayer"
+          },
+          "minItems": 1,
+          "title": "Layers",
+          "type": "array"
+        },
+        "actions": {
+          "items": {
+            "$ref": "#/$defs/EditAction"
+          },
+          "title": "Actions",
+          "type": "array"
+        },
+        "effects": {
+          "items": {
+            "$ref": "#/$defs/EffectObservation"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "sound_relation": {
+          "$ref": "#/$defs/Claim"
+        },
+        "preceding_rhythm_role": {
+          "$ref": "#/$defs/Claim"
+        },
+        "following_rhythm_role": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "shot_id",
+        "start_timestamp_us",
+        "end_timestamp_us",
+        "summary",
+        "layers",
+        "sound_relation",
+        "preceding_rhythm_role",
+        "following_rhythm_role"
+      ],
+      "title": "ReferenceShotAnalysis",
+      "type": "object"
+    },
+    "RhythmUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "unit_id": {
+          "minLength": 1,
+          "title": "Unit Id",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "start_timestamp_us": {
+          "minimum": 0,
+          "title": "Start Timestamp Us",
+          "type": "integer"
+        },
+        "end_timestamp_us": {
+          "exclusiveMinimum": 0,
+          "title": "End Timestamp Us",
+          "type": "integer"
+        },
+        "shot_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Shot Ids",
+          "type": "array"
+        },
+        "music_pattern": {
+          "$ref": "#/$defs/Claim"
+        },
+        "visual_sequence": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Visual Sequence",
+          "type": "array"
+        },
+        "build_up_role": {
+          "$ref": "#/$defs/Claim"
+        },
+        "release_role": {
+          "$ref": "#/$defs/Claim"
+        },
+        "transfer_rule": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "unit_id",
+        "name",
+        "start_timestamp_us",
+        "end_timestamp_us",
+        "shot_ids",
+        "music_pattern",
+        "visual_sequence",
+        "build_up_role",
+        "release_role",
+        "transfer_rule"
+      ],
+      "title": "RhythmUnit",
+      "type": "object"
+    },
+    "StageKnowledgeProjection": {
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "enum": [
+            "creative_direction",
+            "resource_preparation",
+            "editing_specification"
+          ],
+          "title": "Stage",
+          "type": "string"
+        },
+        "knowledge_types": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Knowledge Types",
+          "type": "array"
+        },
+        "retrieval_tags": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Retrieval Tags",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "stage",
+        "knowledge_types",
+        "retrieval_tags",
+        "recommendations"
+      ],
+      "title": "StageKnowledgeProjection",
+      "type": "object"
+    },
+    "TempoHypothesis": {
+      "additionalProperties": false,
+      "properties": {
+        "bpm": {
+          "exclusiveMinimum": 0,
+          "maximum": 400,
+          "title": "Bpm",
+          "type": "number"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "fact",
+            "inference",
+            "opinion",
+            "unverified"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "basis": {
+          "$ref": "#/$defs/Claim"
+        },
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "bpm",
+        "confidence",
+        "status",
+        "basis"
+      ],
+      "title": "TempoHypothesis",
+      "type": "object"
+    },
+    "VideoOverview": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "source_name": {
+          "minLength": 1,
+          "title": "Source Name",
+          "type": "string"
+        },
+        "duration_us": {
+          "exclusiveMinimum": 0,
+          "title": "Duration Us",
+          "type": "integer"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "exclusiveMinimum": 0,
+          "title": "Height",
+          "type": "integer"
+        },
+        "frame_rate_numerator": {
+          "exclusiveMinimum": 0,
+          "title": "Frame Rate Numerator",
+          "type": "integer"
+        },
+        "frame_rate_denominator": {
+          "exclusiveMinimum": 0,
+          "title": "Frame Rate Denominator",
+          "type": "integer"
+        },
+        "summary": {
+          "$ref": "#/$defs/Claim"
+        },
+        "content_goal": {
+          "$ref": "#/$defs/Claim"
+        },
+        "editing_identity": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Editing Identity",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "source_name",
+        "duration_us",
+        "width",
+        "height",
+        "frame_rate_numerator",
+        "frame_rate_denominator",
+        "summary",
+        "content_goal",
+        "editing_identity"
+      ],
+      "title": "VideoOverview",
+      "type": "object"
+    },
+    "ViewingExperience": {
+      "additionalProperties": false,
+      "properties": {
+        "overall_target": {
+          "$ref": "#/$defs/Claim"
+        },
+        "emotional_effects": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Emotional Effects",
+          "type": "array"
+        },
+        "pacing_and_breathing": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Pacing And Breathing",
+          "type": "array"
+        },
+        "richness_and_layering": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Richness And Layering",
+          "type": "array"
+        },
+        "attention_guidance": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Attention Guidance",
+          "type": "array"
+        }
+      },
+      "required": [
+        "overall_target",
+        "emotional_effects",
+        "pacing_and_breathing"
+      ],
+      "title": "ViewingExperience",
+      "type": "object"
+    },
+    "VisualLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "layer_id": {
+          "minLength": 1,
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "layer_type": {
+          "minLength": 1,
+          "title": "Layer Type",
+          "type": "string"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        },
+        "description": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "evidence_refs",
+        "layer_id",
+        "layer_type",
+        "z_index",
+        "description"
+      ],
+      "title": "VisualLayer",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "analysis_id": {
+      "minLength": 1,
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Sha256",
+      "type": "string"
+    },
+    "report_content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Report Content Sha256",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "content": {
+      "$ref": "#/$defs/ReferenceReportContent"
+    }
+  },
+  "required": [
+    "analysis_id",
+    "source_sha256",
+    "report_content_sha256",
+    "evidence_refs",
+    "content"
+  ],
+  "title": "ReferenceReportManifest",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

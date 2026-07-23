@@ -8,6 +8,7 @@ build/
 .env
 
 output/analysis_520/
+output/plugin/
 
 output/download/*
 !output/download/.gitkeep

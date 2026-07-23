@@ -1,0 +1,17 @@
+{
+  "name": "huayang",
+  "version": "0.1.0",
+  "description": "从自然语言完成参考视频学习、原创视频规划、参考驱动创作和本地剪辑渲染。Plugin 自动识别任务类型并按阶段加载上下文，用户只需描述业务目标和提供素材。",
+  "author": {
+    "name": "huayang"
+  },
+  "license": "Proprietary",
+  "keywords": [
+    "video",
+    "editing",
+    "reference-analysis",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,392 @@
+[
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "video_type",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "用角色建立、威胁蓄力、动作快切、冲击帧爆发和角色宣告收束的结构，重建高燃对决体验。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "viewing_experience",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "紧张、危险、持续提速，并在白闪与高对比动作爆发处获得集中冲击。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.82,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "asset_selection",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "准备同一对抗关系下方向连续的动作素材、清晰主体近景、统一高对比色调背景和少量冲击帧素材。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.86,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_structure",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "选择具有蓄力、瞬态簇和集中释放段的音乐；动作快切跟随高层节奏组，冲击帧只响应少数强瞬态。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/audio/beat_grid.json",
+      "output/plugin/validation/reference_learning/character_hype/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/audio/tempo_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/audio/transient_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.78,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "section",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "rhythm_unit",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "角色宣告 → 威胁蓄力 → 双方入场 → 高频攻防 → 闪白爆发 → 台词收束。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.9,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "layering_rule",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "分屏只在双方关系需要同时成立时使用，其他时刻让单一主角占据视觉中心。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "reference_content",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "围绕猫与狼对决构成的高燃角色混剪，前段用角色宣告建立威胁，中段以红紫色战斗快切、闪白和反相效果集中爆发，末段回到狼的正面台词。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg",
+      "output/plugin/validation/reference_learning/character_hype/visual/media_probe.json"
+    ],
+    "fact_status": "observed",
+    "confidence": 1.0,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_measurement",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片 DSP 速度候选为 198.768 BPM，属于 mixed_program_audio 推测值。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/character_hype/audio/tempo_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 1.0,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_character_hype",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_character_hype",
+      "revision": 1,
+      "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_character_hype",
+        "revision": 1,
+        "sha256": "1a73ffa6eff71f3b887ba2c1fe6c69c4912b611cbe4ac77ee95a69f411e347cf"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "reference_shot_timeline",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片人工语义时间线包含 46 个主画面段；自动边界候选需逐项区分硬切、镜内动画和整体效果。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/character_hype/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/character_hype/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "observed",
+    "confidence": 0.95,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "character_hype"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  }
+]

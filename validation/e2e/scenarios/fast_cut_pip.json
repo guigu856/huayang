@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "fast_cut_pip",
+  "profile": "fast_cut_pip",
+  "title": "约一秒硬切与短时画中画重创作",
+  "user_intent": "做一个一秒左右硬切并带短时画中画的动画混剪，素材内容要与参考视频不同。",
+  "duration_us": 6000000,
+  "canvas": {
+    "width": 640,
+    "height": 360,
+    "fps": 30.0
+  },
+  "main_shot_count": 6,
+  "minimum_distinct_visual_assets": 4,
+  "forbidden_source_sha256s": [
+    "41e33f413403767c2a4217bf0ee0bad47a84769ae5e8868644549a073d2367ab"
+  ],
+  "source_clips": [
+    {
+      "asset_id": "material_fast_01",
+      "name": "抠像重合成片段 A",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\08从动漫片段中抠出人物，得到透明 PNG、PNG 序列或带 Alpha 的短视频，再与独立背景、字幕和特效重新合成.mp4",
+      "source_start_us": 2000000,
+      "extract_duration_us": 1500000,
+      "content_summary": "独立背景与角色重合成画面",
+      "selection_traits": ["主体清晰", "与目标参考素材不同"]
+    },
+    {
+      "asset_id": "material_fast_02",
+      "name": "动画拼贴片段 A",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\视觉 Composition 的动画拼贴混剪.mp4",
+      "source_start_us": 2000000,
+      "extract_duration_us": 1500000,
+      "content_summary": "多元素动画拼贴画面",
+      "selection_traits": ["构图层次明确", "色彩与上一镜形成差异"]
+    },
+    {
+      "asset_id": "material_fast_03",
+      "name": "角色高燃片段 A",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\角色高燃混剪.mp4",
+      "source_start_us": 1500000,
+      "extract_duration_us": 1500000,
+      "content_summary": "角色动作推进画面",
+      "selection_traits": ["运动方向鲜明", "主体占比高"]
+    },
+    {
+      "asset_id": "material_fast_04",
+      "name": "抠像重合成片段 B",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\08从动漫片段中抠出人物，得到透明 PNG、PNG 序列或带 Alpha 的短视频，再与独立背景、字幕和特效重新合成.mp4",
+      "source_start_us": 8000000,
+      "extract_duration_us": 1500000,
+      "content_summary": "另一时间区间的角色背景合成画面",
+      "selection_traits": ["时间区间独立", "可承接硬切"]
+    },
+    {
+      "asset_id": "material_fast_05",
+      "name": "动画拼贴片段 B",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\视觉 Composition 的动画拼贴混剪.mp4",
+      "source_start_us": 20000000,
+      "extract_duration_us": 1500000,
+      "content_summary": "另一构图阶段的动画拼贴画面",
+      "selection_traits": ["视觉元素丰富", "与前段内容独立"]
+    },
+    {
+      "asset_id": "material_fast_06",
+      "name": "角色高燃片段 B",
+      "source_path": "C:\\Users\\32249\\Desktop\\project\\Growth\\forge\\_generalization_testset\\角色高燃混剪.mp4",
+      "source_start_us": 12000000,
+      "extract_duration_us": 1500000,
+      "content_summary": "另一动作段落的角色画面",
+      "selection_traits": ["动作变化明显", "适合作为末段释放"]
+    }
+  ],
+  "main_asset_ids": [
+    "material_fast_01",
+    "material_fast_02",
+    "material_fast_03",
+    "material_fast_04",
+    "material_fast_05",
+    "material_fast_06"
+  ],
+  "pip_events": [
+    {
+      "pip_id": "pip_fast_01",
+      "shot_index": 0,
+      "asset_id": "material_fast_03",
+      "start_offset_us": 250000,
+      "duration_us": 500000,
+      "transform": {"x": 400.0, "y": 220.0, "width": 220.0, "height": 124.0, "opacity": 1.0}
+    },
+    {
+      "pip_id": "pip_fast_02",
+      "shot_index": 2,
+      "asset_id": "material_fast_05",
+      "start_offset_us": 200000,
+      "duration_us": 520000,
+      "transform": {"x": 20.0, "y": 216.0, "width": 220.0, "height": 124.0, "opacity": 1.0}
+    },
+    {
+      "pip_id": "pip_fast_03",
+      "shot_index": 4,
+      "asset_id": "material_fast_02",
+      "start_offset_us": 240000,
+      "duration_us": 500000,
+      "transform": {"x": 400.0, "y": 20.0, "width": 220.0, "height": 124.0, "opacity": 1.0}
+    }
+  ],
+  "bgm": {
+    "asset_id": "material_bgm",
+    "path": "output/plugin/validation/bgm/derivatives/mixkit_989_e36220dbbaf5_clip_0_6000.mp3",
+    "provenance_path": "output/plugin/validation/bgm/provenance/mixkit_989_e36220dbbaf5_clip_0_6000.json",
+    "expected_sha256": "d79b050b1e24801a11d83c88002c2709d2df3ad409666ebc993c0d57f4db934c",
+    "mood_traits": ["稳定脉冲", "推进", "短视频混剪"]
+  },
+  "knowledge_queries": {
+    "stage1": {
+      "text": "轻快发现感、连续新鲜感、局部画中画递进和视觉丰富度的短镜头组机制",
+      "knowledge_types": ["video_type", "viewing_experience"],
+      "limit": 1
+    },
+    "stage2": {
+      "text": "一秒快切画中画重创作需要怎样的不同素材、构图和 BGM 节奏特征",
+      "knowledge_types": ["asset_selection", "bgm_structure"],
+      "limit": 1
+    },
+    "stage3": {
+      "text": "一秒硬切、镜内画中画进入退出、节拍绑定和镜头密度的可执行编排",
+      "knowledge_types": ["rhythm_unit", "layering_rule"],
+      "limit": 1
+    }
+  }
+}

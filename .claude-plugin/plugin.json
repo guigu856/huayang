@@ -1,0 +1,9 @@
+{
+  "name": "huayang",
+  "version": "0.1.0",
+  "description": "参考视频学习、分阶段视频创作和本地剪辑执行 Plugin",
+  "author": {
+    "name": "huayang"
+  },
+  "skills": "./skills/"
+}

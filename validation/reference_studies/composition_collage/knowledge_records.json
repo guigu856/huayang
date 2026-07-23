@@ -1,0 +1,392 @@
+[
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "video_type",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "以稳定的排版锚点组织多层素材，让构图演化、界面隐喻与后段动作蒙太奇形成由设计感到爆发感的递进。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "viewing_experience",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "信息丰富、俏皮、不断变形，并在动作段通过固定字形与高能量闪光获得统一而强烈的冲击。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.82,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "asset_selection",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "按背景基底、主体层、语义符号、排版界面、动作层和冲击效果分组准备素材，并为每组指定层级职责。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.86,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_structure",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "选择可支撑逐层累积并在后段释放的音乐结构；元素进入响应不同声部，主构图切换响应段落级转折。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/audio/beat_grid.json",
+      "output/plugin/validation/reference_learning/composition_collage/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/audio/tempo_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/audio/transient_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.78,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "section",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "rhythm_unit",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "稳定排版锚点 → 多层元素依次进入 → 构图满屏转折 → 视觉锚点跨镜延续 → 末段图形收束。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/audio/section_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.9,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "creation_knowledge",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "layering_rule",
+    "visibility": "creation_shared",
+    "transferability": "reusable_mechanism",
+    "content": "每个构图保留一个稳定锚点，再让人物、标识、界面和字形按层依次进入。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.88,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "rhythm_unit",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage1"
+    ],
+    "knowledge_type": "reference_content",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "以红黑白排版、剪纸角色、道路标识、手机界面和动漫动作构成的多层动画拼贴，前半通过图形布局持续变形，后半转入带固定字形的动作蒙太奇。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg",
+      "output/plugin/validation/reference_learning/composition_collage/visual/media_probe.json"
+    ],
+    "fact_status": "observed",
+    "confidence": 1.0,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage2"
+    ],
+    "knowledge_type": "bgm_measurement",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片 DSP 速度候选为 151.999 BPM，属于 mixed_program_audio 推测值。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/audio/evidence_manifest.json",
+      "output/plugin/validation/reference_learning/composition_collage/audio/tempo_candidates.json"
+    ],
+    "fact_status": "inference",
+    "confidence": 0.97795,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  },
+  {
+    "knowledge_id": null,
+    "publication_id": null,
+    "collection": "reference_evidence",
+    "source_task_id": "reference_study_composition_collage",
+    "source_report_ref": {
+      "artifact_id": "fixture_report_composition_collage",
+      "revision": 1,
+      "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+    },
+    "source_artifact_refs": [
+      {
+        "artifact_id": "fixture_report_composition_collage",
+        "revision": 1,
+        "sha256": "337cfcbf6e82949439532436eb9d86475155323599a96607e3cb0c14ec0020f0"
+      }
+    ],
+    "analysis_version": "reference-semantics-v1.0.0",
+    "applicable_stages": [
+      "stage3"
+    ],
+    "knowledge_type": "reference_shot_timeline",
+    "visibility": "evidence_only",
+    "transferability": "reference_specific",
+    "content": "原片人工语义时间线包含 38 个主画面段；自动边界候选需逐项区分硬切、镜内动画和整体效果。",
+    "evidence_refs": [
+      "output/plugin/validation/reference_learning/composition_collage/visual/boundary_candidates.json",
+      "output/plugin/validation/reference_learning/composition_collage/visual/contact_sheet.jpg"
+    ],
+    "fact_status": "observed",
+    "confidence": 0.95,
+    "source_time_range_us": null,
+    "video_type_tags": [
+      "composition_collage"
+    ],
+    "technique_tags": [],
+    "music_layer_tags": [],
+    "energy_phase": null,
+    "granularity": "global",
+    "chunker_version": "knowledge-unit-v1",
+    "embedding_version": "zh-char-ngram-hash-v1-d384-n1-3",
+    "embedding_dimension": 384
+  }
+]

@@ -1,0 +1,451 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 1,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "revision",
+        "sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "BgmPackage": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "pattern": "^material_[A-Za-z0-9_-]+$",
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "duration_us": {
+          "exclusiveMinimum": 0,
+          "title": "Duration Us",
+          "type": "integer"
+        },
+        "source_url": {
+          "minLength": 1,
+          "title": "Source Url",
+          "type": "string"
+        },
+        "provider": {
+          "minLength": 1,
+          "title": "Provider",
+          "type": "string"
+        },
+        "creator": {
+          "minLength": 1,
+          "title": "Creator",
+          "type": "string"
+        },
+        "license_record": {
+          "minLength": 1,
+          "title": "License Record",
+          "type": "string"
+        },
+        "provenance_ref": {
+          "minLength": 1,
+          "title": "Provenance Ref",
+          "type": "string"
+        },
+        "audio_analysis_ref": {
+          "minLength": 1,
+          "title": "Audio Analysis Ref",
+          "type": "string"
+        },
+        "mood_traits": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Mood Traits",
+          "type": "array"
+        },
+        "tempo_candidates_bpm": {
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "title": "Tempo Candidates Bpm",
+          "type": "array"
+        },
+        "beat_grid_us": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "title": "Beat Grid Us",
+          "type": "array"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/$defs/BgmSection"
+          },
+          "minItems": 1,
+          "title": "Sections",
+          "type": "array"
+        }
+      },
+      "required": [
+        "asset_id",
+        "name",
+        "path",
+        "sha256",
+        "duration_us",
+        "source_url",
+        "provider",
+        "creator",
+        "license_record",
+        "provenance_ref",
+        "audio_analysis_ref",
+        "mood_traits",
+        "tempo_candidates_bpm",
+        "beat_grid_us",
+        "sections"
+      ],
+      "title": "BgmPackage",
+      "type": "object"
+    },
+    "BgmSection": {
+      "additionalProperties": false,
+      "properties": {
+        "section_id": {
+          "pattern": "^section_[A-Za-z0-9_-]+$",
+          "title": "Section Id",
+          "type": "string"
+        },
+        "start_us": {
+          "minimum": 0,
+          "title": "Start Us",
+          "type": "integer"
+        },
+        "end_us": {
+          "exclusiveMinimum": 0,
+          "title": "End Us",
+          "type": "integer"
+        },
+        "role": {
+          "minLength": 1,
+          "title": "Role",
+          "type": "string"
+        },
+        "energy_phase": {
+          "minLength": 1,
+          "title": "Energy Phase",
+          "type": "string"
+        }
+      },
+      "required": [
+        "section_id",
+        "start_us",
+        "end_us",
+        "role",
+        "energy_phase"
+      ],
+      "title": "BgmSection",
+      "type": "object"
+    },
+    "FreezeRef": {
+      "additionalProperties": false,
+      "properties": {
+        "freeze_id": {
+          "minLength": 1,
+          "title": "Freeze Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_revision": {
+          "minimum": 1,
+          "title": "Artifact Revision",
+          "type": "integer"
+        },
+        "artifact_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Artifact Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freeze_id",
+        "artifact_id",
+        "artifact_revision",
+        "artifact_sha256"
+      ],
+      "title": "FreezeRef",
+      "type": "object"
+    },
+    "PreparedMaterial": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "pattern": "^material_[A-Za-z0-9_-]+$",
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "video",
+            "image"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "duration_us": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration Us"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "exclusiveMinimum": 0,
+          "title": "Height",
+          "type": "integer"
+        },
+        "content_summary": {
+          "minLength": 1,
+          "title": "Content Summary",
+          "type": "string"
+        },
+        "selection_traits": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Selection Traits",
+          "type": "array"
+        },
+        "usable_source_ranges": {
+          "items": {
+            "$ref": "#/$defs/SourceRange"
+          },
+          "minItems": 1,
+          "title": "Usable Source Ranges",
+          "type": "array"
+        },
+        "source_url": {
+          "minLength": 1,
+          "title": "Source Url",
+          "type": "string"
+        },
+        "provider": {
+          "minLength": 1,
+          "title": "Provider",
+          "type": "string"
+        },
+        "creator": {
+          "minLength": 1,
+          "title": "Creator",
+          "type": "string"
+        },
+        "license_record": {
+          "minLength": 1,
+          "title": "License Record",
+          "type": "string"
+        },
+        "provenance_ref": {
+          "minLength": 1,
+          "title": "Provenance Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "kind",
+        "name",
+        "path",
+        "sha256",
+        "width",
+        "height",
+        "content_summary",
+        "selection_traits",
+        "usable_source_ranges",
+        "source_url",
+        "provider",
+        "creator",
+        "license_record",
+        "provenance_ref"
+      ],
+      "title": "PreparedMaterial",
+      "type": "object"
+    },
+    "ReferenceContextBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "source_report_ref": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "source_report_freeze_ref": {
+          "$ref": "#/$defs/FreezeRef"
+        },
+        "report_content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Report Content Sha256",
+          "type": "string"
+        },
+        "projection_stage": {
+          "enum": [
+            "creative_direction",
+            "resource_preparation",
+            "editing_specification"
+          ],
+          "title": "Projection Stage",
+          "type": "string"
+        },
+        "stage_projection_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Stage Projection Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_report_ref",
+        "source_report_freeze_ref",
+        "report_content_sha256",
+        "projection_stage",
+        "stage_projection_sha256"
+      ],
+      "title": "ReferenceContextBinding",
+      "type": "object"
+    },
+    "SourceRange": {
+      "additionalProperties": false,
+      "properties": {
+        "start_us": {
+          "minimum": 0,
+          "title": "Start Us",
+          "type": "integer"
+        },
+        "end_us": {
+          "exclusiveMinimum": 0,
+          "title": "End Us",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_us",
+        "end_us"
+      ],
+      "title": "SourceRange",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "materials": {
+      "items": {
+        "$ref": "#/$defs/PreparedMaterial"
+      },
+      "minItems": 1,
+      "title": "Materials",
+      "type": "array"
+    },
+    "bgm": {
+      "$ref": "#/$defs/BgmPackage"
+    },
+    "provenance_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Provenance Refs",
+      "type": "array"
+    },
+    "retrieval_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Retrieval Ids",
+      "type": "array"
+    },
+    "reference_context": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReferenceContextBinding"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "materials",
+    "bgm",
+    "provenance_refs",
+    "retrieval_ids"
+  ],
+  "title": "PreparationPackage",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}
