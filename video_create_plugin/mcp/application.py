@@ -16,6 +16,7 @@ from urllib.parse import unquote
 from pydantic import ValidationError
 
 from components.bgm_acquisition import BgmAcquisitionConfig, BgmAcquisitionService
+from components.bgm_analysis import BgmAnalysisService
 from components.image_acquisition import (
     ImageAcquisitionConfig,
     ImageAcquisitionService,
@@ -603,6 +604,12 @@ class PluginApplication:
             clip_start_seconds=clip_start_seconds,
             clip_duration_seconds=clip_duration_seconds,
         ).to_dict()
+
+    def bgm_analyze(self, access_handle: str, source_path: str) -> dict[str, Any]:
+        task, _ = self.authorize(access_handle, "bgm_analyze")
+        source = self.media_input(source_path)
+        analysis_dir = self._task_root(task.task_id) / "bgm_analysis" / source.stem
+        return BgmAnalysisService().analyze(source, analysis_dir)
 
     def editor_preflight(
         self,

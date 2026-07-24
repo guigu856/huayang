@@ -336,6 +336,7 @@ _STAGE_TOOLS: dict[str, tuple[str, ...]] = {
         "bgm_list_sources",
         "bgm_search",
         "bgm_acquire",
+        "bgm_analyze",
     ),
     "editing_specification": (
         "workflow_submit_artifact",

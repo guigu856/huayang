@@ -368,6 +368,10 @@ def _register_tools(server: FastMCP, app: PluginApplication) -> None:
             )
         )
 
+    @server.tool(name="bgm_analyze", structured_output=True)
+    def bgm_analyze(access_handle: str, source_path: str) -> ToolResponse:
+        return _invoke(lambda: app.bgm_analyze(access_handle, source_path))
+
     @server.tool(name="editor_preflight_spec", structured_output=True)
     def editor_preflight_spec(access_handle: str) -> ToolResponse:
         return _invoke(lambda: app.editor_preflight(access_handle))

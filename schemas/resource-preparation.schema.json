@@ -113,7 +113,6 @@
           "items": {
             "$ref": "#/$defs/BgmSection"
           },
-          "minItems": 1,
           "title": "Sections",
           "type": "array"
         }
@@ -132,8 +131,7 @@
         "audio_analysis_ref",
         "mood_traits",
         "tempo_candidates_bpm",
-        "beat_grid_us",
-        "sections"
+        "beat_grid_us"
       ],
       "title": "BgmPackage",
       "type": "object"
@@ -156,23 +154,16 @@
           "title": "End Us",
           "type": "integer"
         },
-        "role": {
-          "minLength": 1,
-          "title": "Role",
-          "type": "string"
-        },
-        "energy_phase": {
-          "minLength": 1,
-          "title": "Energy Phase",
-          "type": "string"
+        "mean_energy": {
+          "default": 0.0,
+          "title": "Mean Energy",
+          "type": "number"
         }
       },
       "required": [
         "section_id",
         "start_us",
-        "end_us",
-        "role",
-        "energy_phase"
+        "end_us"
       ],
       "title": "BgmSection",
       "type": "object"
